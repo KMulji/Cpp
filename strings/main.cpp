@@ -86,11 +86,11 @@ int main()
     /*
         this is a example of c++ class string.
     */
-    std::cout << token << std::endl;
-    std::cin.ignore();
-    std::string x5;
-    getline(std::cin, x5);
-    std::cout << "text is" << x5 << std::endl;
+    // std::cout << token << std::endl;
+    // std::cin.ignore();
+    // std::string x5;
+    // getline(std::cin, x5);
+    // std::cout << "text is" << x5 << std::endl;
 
     /*
         the string class has the following functions
@@ -121,7 +121,32 @@ int main()
         3. s.rfind(string/char) -> find a string or char starting from end of the string. returns index
         4. s.find_first_of(char,index(optional)) -> find the index of a first occurence of a character.
         5. s.find_last_of(char,index(optional)) -> find the index of last occurence of a character.
+        6. s.substr(start,number(optional)) -> Find the substring starting at start. Number can be used to specify the number of chars.
+        7. s.compare(otherstring) -> works same way as strcmp.
+        8. at() -> give a letter at a specific index. e.g str.at(4);
+        9. + -> we can add two strings concatenation
+        10. front()-> returns the first character.
+        11. back() -> returns the last character.
     */
+    /*
+     iterators
+
+    */
+    string s2 = "HelloWorld";
+
+    for (string::iterator it = s2.begin(); it != s2.end(); it++)
+    {
+        std::cout<<*it;
+    }
+    std::cout<<std::endl;
+
+    for (string::reverse_iterator it = s2.rbegin(); it != s2.rend(); it++)
+    {
+        std::cout<<*it;
+    }
+    std::cout<<std::endl;
+
+
 
     return 0;
 }
