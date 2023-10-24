@@ -93,8 +93,34 @@ int sum10(int a,int b,int c=0){
 }
 /*
     pass by value
-    the values are copied into the parameters and are separate from 
+    the values are copied into the parameter variables and do not affect the main vars.The swap function below will not affect 
+    the variables in the main function.
 */
+
+void swap(int a, int b){
+    int temp =a;
+    a=b;
+    b=temp;
+}
+/*
+    pass by address we pass the address of the variables to the function so that the varables can be modified.
+    swap(&a,&b)
+
+*/
+void swap2(int *a, int *b){
+    int temp =*a;
+    *a=*b;
+    *b=temp;
+}
+/*
+    call by reference 
+    swap(a,b)
+*/
+void swap3(int &a, int &b){
+    int temp =a;
+    a=b;
+    b=temp;
+}
 int main()
 {
     std::cout<<sum10(2,3,7)<<std::endl;
