@@ -2,6 +2,98 @@
 #include <cstring>
 #include <string>
 using namespace std;
+/*
+    given a string built from string class, find the length of the string
+*/
+void Length(string &s)
+{
+    int count = 0;
+    for (string::iterator it = s.begin(); it != s.end(); it++)
+    {
+        count++;
+    }
+    cout << count << endl;
+}
+/*
+    Given a string s in uppercase, convert the string to lowecase.
+*/
+void UpperToLower(string &s)
+{
+    for (string::iterator it = s.begin(); it != s.end(); it++)
+    {
+        if ((int)*it >= 65 && (int)*it <= 90)
+        {
+            *it = *it + 32;
+        }
+    }
+    cout << s << endl;
+}
+/*
+    Given a string s in lowercase, convert it to uppercase.
+    A=65
+    a=97
+*/
+void LowerToUpper(string &s)
+{
+    for (string::iterator it = s.begin(); it != s.end(); it++)
+    {
+        if ((int)*it >= 97 && (int)*it <= 122)
+        {
+            *it = *it - 32;
+        }
+    }
+    cout << s << endl;
+}
+void CountVowelsWordsConsonants(string &s)
+{
+    int vowel = 0;
+    int words = 0;
+    int consonants = 0;
+    UpperToLower(s);
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u')
+        {
+            vowel++;
+        }
+        else if (s[i] == ' ')
+        {
+            words++;
+            while (s[i] == ' ')
+            {
+                i++;
+            }
+        }
+        else
+        {
+            consonants++;
+        }
+    }
+    cout << "words,vowels,consonants: " << words + 1 << vowel << consonants << endl;
+}
+void Palindrome(string &s)
+{
+    int i = 0;
+    int j = s.size() - 1;
+
+    while (i < j)
+    {
+        if (s[i] != s[j])
+        {
+            cout << "Not Palindrome" << endl;
+            return;
+        }
+        i++;
+        j--;
+    }
+    cout << "Palindrome" << endl;
+}
+void UserName(string &s)
+{
+    int at = s.find('@');
+
+    cout<<s.substr(0,at)<<endl;
+}
 int main()
 {
 
@@ -136,17 +228,32 @@ int main()
 
     for (string::iterator it = s2.begin(); it != s2.end(); it++)
     {
-        std::cout<<*it;
+        std::cout << *it;
     }
-    std::cout<<std::endl;
+    std::cout << std::endl;
 
     for (string::reverse_iterator it = s2.rbegin(); it != s2.rend(); it++)
     {
-        std::cout<<*it;
+        std::cout << *it;
     }
-    std::cout<<std::endl;
+    std::cout << std::endl;
 
+    string x4 = "welcome";
 
+    Length(x4);
 
+    string z5 = "WeLCOME";
+
+    UpperToLower(z5);
+    LowerToUpper(z5);
+
+    string c5 = "how   Many Words";
+    CountVowelsWordsConsonants(c5);
+    string madam = "madams";
+    Palindrome(madam);
+
+    string u1 = "jamiematt@gmail.com";
+
+    UserName(u1);
     return 0;
 }
