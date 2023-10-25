@@ -75,10 +75,11 @@ float Min(float a, float b)
 Function Template
 
 */
-template<class T>
+template <class T>
 T max(T a, T b)
 {
-    if(a>b){
+    if (a > b)
+    {
         return a;
     }
     return b;
@@ -88,41 +89,103 @@ T max(T a, T b)
     allows u to have optional arguments.
     c becomes optional.
 */
-int sum10(int a,int b,int c=0){
-    return a+b+c;
+int sum10(int a, int b, int c = 0)
+{
+    return a + b + c;
 }
 /*
     pass by value
-    the values are copied into the parameter variables and do not affect the main vars.The swap function below will not affect 
+    the values are copied into the parameter variables and do not affect the main vars.The swap function below will not affect
     the variables in the main function.
 */
 
-void swap(int a, int b){
-    int temp =a;
-    a=b;
-    b=temp;
+void swap(int a, int b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
 }
 /*
     pass by address we pass the address of the variables to the function so that the varables can be modified.
     swap(&a,&b)
 
 */
-void swap2(int *a, int *b){
-    int temp =*a;
-    *a=*b;
-    *b=temp;
+void swap2(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 /*
-    call by reference 
+    call by reference
     swap(a,b)
 */
-void swap3(int &a, int &b){
-    int temp =a;
-    a=b;
-    b=temp;
+void swap3(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
 }
+/*
+    return by address
+    a function can basically return a pointer.
+*/
+int *fun(int size)
+{
+    int *x = new int[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        x[i] = i;
+    }
+    return x;
+}
+/*return by reference
+    you cannot return a reference to a variable present in the function.
+*/
+int &fun2(int &a)
+{
+
+    return a;
+}
+/*
+exercise linear search
+*/
+
+int LinearSearch(int a[], int n, int key)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == key)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+/*
+    pointer to a function.
+*/
+void display()
+{
+}
+
 int main()
 {
-    std::cout<<sum10(2,3,7)<<std::endl;
+    int a[5];
+    int key;
+    std::cout << "Enter 5 numbers: ";
+    for (int i = 0; i < 5; i++)
+    {
+        std::cin >> a[i];
+    }
+    std::cout << "Enter a key";
+    std::cin >> key;
+
+    std::cout << LinearSearch(a, 5, key) << std::endl;
+    // function pointer.
+    void (*fp)();
+    fp = display;
+    (*fp)();
     return 0;
 }
