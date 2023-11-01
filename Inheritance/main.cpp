@@ -61,9 +61,9 @@ public:
 */
 /*
     Access Specifiers.
-    1. public ->
-    2. private ->
-    3. protected -> 
+    1. public -> this allows other derived classes and objects to access the data members and functions.
+    2. private -> this allows only members to the class to access data or functions. Anything outside the class cannot access
+    3. protected -> this allows only derived classes to access data members of functions.
 */
 int main()
 {
