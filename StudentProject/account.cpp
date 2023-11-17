@@ -3,8 +3,8 @@
 
 Account::Account(std::string FName, std::string LName, float Balance)
 {
-    this->Id=NextId;
     NextId++;
+    this->Id=NextId;
     this->FName = FName;
     this->LName = LName;
     this->Balance = Balance;

@@ -3,12 +3,12 @@
 #include <iostream>
 #include "Account.hpp"
 #include "Bank.hpp"
-Bank::Bank(std::string Fname, std::string Lname, float Balance)
+Bank::Bank()
 {
     // we read from the file into the map.
     Account a;
     std::ifstream ifs;
-    ifs.open("Banks.txt", std::ios::trunc);
+    ifs.open("Banks.txt");
 
     if (!ifs)
     {
@@ -28,7 +28,7 @@ Account Bank::CreateAccount(std::string Fname, std::string Lname, float Balance)
     // we create an account, add to map and write to the file.
     Account a(Fname, Lname, Balance);
     mp.insert({a.GetId(), a});
-    std::ofstream ofs("Banks.txt");
+    std::ofstream ofs("Banks.txt",std::ios::trunc);
 
     std::map<long, Account>::iterator it;
 
@@ -82,7 +82,7 @@ Bank::~Bank()
 
     for (it = mp.begin(); it != mp.end(); it++)
     {
-        ofs << it->second << std::endl;
+        ofs << it->second;
     }
 
     ofs.close();

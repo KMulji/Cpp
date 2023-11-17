@@ -11,8 +11,7 @@ private:
     std::map<long, Account> mp;
 
 public:
-    Bank(){};
-    Bank(std::string Fname, std::string Lname, float Balance);
+    Bank();
     Account CreateAccount(std::string Fname, std::string Lname, float Balance);
     Account FindAccount(long id);
     Account Deposit(float amount,long id);
