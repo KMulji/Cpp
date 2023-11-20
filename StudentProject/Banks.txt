@@ -14,10 +14,6 @@ Mulji
 Ash
 Mulji
 5000
-5
-azmin
-mulji
-70000
 6
 aaa
 ssss
@@ -30,3 +26,7 @@ Mulji
 Tom
 Jerry
 300000
+9
+llil
+pump
+1e+06
